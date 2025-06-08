@@ -28,7 +28,7 @@ const Width = () => {
         largura da tela {width}
       </div>
       <button
-        className=""
+        className=" w-28 h-12"
         style={{
           background: anabled ? "#222" : "#444",
           color: "#fff",

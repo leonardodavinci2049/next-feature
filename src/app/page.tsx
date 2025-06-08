@@ -1,14 +1,11 @@
-import fs from 'fs/promises';
+import React from "react";
 
-export default async function HomePage() {
-  await fs.appendFile('log.txt', `<div>Home page accessed ${Date.now()}  \n <br /></div>`, 'utf8');
-  const data = await fs.readFile('log.txt', 'utf8');
-
+const page = () => {
   return (
-    <main className="">
-      <div>{data}</div>
-      <br />
-    
-    </main>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 text-gray-800">
+      HOME
+    </div>
   );
-}
+};
+
+export default page;

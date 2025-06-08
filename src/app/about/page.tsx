@@ -5,7 +5,7 @@ import Width from "./components/Width"
 const page = () => {
 
   return (
-    <div><Width /></div>
+    <div className="flex flex-col justify-center gap-8"><Width /></div>
 
   )
 }
