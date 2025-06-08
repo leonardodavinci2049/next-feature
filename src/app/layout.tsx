@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,10 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header01 />
-          <div className="container mx-auto px-4 py-12">
-           
-          {children}
-          </div>
+          <div className="container mx-auto px-4 py-12">{children}</div>
         </ThemeProvider>
       </body>
     </html>
