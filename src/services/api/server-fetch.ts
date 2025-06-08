@@ -65,3 +65,32 @@ export async function fetchProdutosEmEstoque(): Promise<Produto[]> {
     throw error;
   }
 }
+
+// Função para buscar um produto específico por ID diretamente da API
+export async function fetchProdutoPorIdDireto(
+  id: number
+): Promise<Produto | null> {
+  try {
+    const response = await fetch(`https://api.origamid.online/produtos/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Cache da requisição por 60 segundos
+      next: { revalidate: 60 },
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        return null; // Produto não encontrado
+      }
+      throw new Error(`Erro na requisição: ${response.status}`);
+    }
+
+    const produto: Produto = await response.json();
+    return produto;
+  } catch (error) {
+    console.error(`Erro ao buscar produto com ID ${id}:`, error);
+    throw error;
+  }
+}
