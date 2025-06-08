@@ -1,3 +1,5 @@
+
+//http://localhost:3000/api/vendas
 export async function GET() {
   try {
     const apiKey = process.env.ORIGAMID_KEY;
