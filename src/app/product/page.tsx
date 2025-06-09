@@ -2,8 +2,11 @@ import LoadingProdutos from "@/app/product/components/LoadingProdutos";
 import ProdutosList from "@/app/product/components/ProdutosList";
 import { DashboardHeader } from "@/app/dashboard/components/dashboard-header";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { Button } from "@/components/ui/button";
 import { fetchProdutos } from "@/services/api/server-fetch";
 import { Suspense } from "react";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 const page = async () => {
   try {
@@ -11,7 +14,7 @@ const page = async () => {
 
     return (
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
-        <DashboardHeader />
+
 
         <div className="space-y-4">
           <Breadcrumbs items={[{ label: "Produtos" }]} />
@@ -24,6 +27,12 @@ const page = async () => {
                   Gerencie todos os seus produtos aqui
                 </p>
               </div>
+              <Link href="/product/addProduct">
+                <Button className="flex items-center gap-2">
+                  <Plus className="h-4 w-4" />
+                  Adicionar Novo Produto
+                </Button>
+              </Link>
             </div>
 
             <Suspense fallback={<LoadingProdutos />}>
