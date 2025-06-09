@@ -18,6 +18,7 @@ const TopMenu = [
   { name: "AppendFile", href: "/file" },
   { name: "Calc. IMC", href: "/imc" },
   { name: "Produtos", href: "/product" },
+  { name: "Dashboard", href: "/dashboard" },
    { name: "Cursos", href: "/cursos" },
 ];
 
