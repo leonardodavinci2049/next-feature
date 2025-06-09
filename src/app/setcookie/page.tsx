@@ -1,5 +1,6 @@
 "use client";
-import SetCookie from "@/actions/SetCookie2";
+
+import SetCookie1 from "@/actions/SetCookie";
 import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 
@@ -24,7 +25,7 @@ const SetCookiePage = () => {
     console.log("Cookie set");
 
     const valueDate = Math.floor(Date.now() / 1000);
-    await SetCookie("segredo", valueDate.toString());
+    await SetCookie1("segredo", valueDate.toString());
 
     setValor(valueDate.toString());
   }
