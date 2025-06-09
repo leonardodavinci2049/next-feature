@@ -1,11 +1,7 @@
-'use client'
+"use client";
 
-import { DashboardLayout } from '@/components/dashboard-layout'
+import { DashboardLayout } from "@/components/dashboard-layout";
 
-export default function IMCLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return <DashboardLayout>{children}</DashboardLayout>
+export default function IMCLayout({ children }: { children: React.ReactNode }) {
+  return <DashboardLayout>{children}</DashboardLayout>;
 }

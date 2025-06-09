@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { DashboardLayout } from '@/components/dashboard-layout'
+import { DashboardLayout } from "@/components/dashboard-layout";
 
 export default function CursosLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return <DashboardLayout>{children}</DashboardLayout>
+  return <DashboardLayout>{children}</DashboardLayout>;
 }
