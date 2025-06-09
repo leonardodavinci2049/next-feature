@@ -28,12 +28,12 @@ export async function ActionAddProduct(formData: FormData) {
     if (!response.ok) {
       throw new Error('Failed to add product');
     }
-    revalidatePath('/produtos'); // Revalida a rota de produtos para atualizar a lista
-    redirect('/produtos'); // Redireciona para a página de produtos após adicionar
-
 
   } catch (error) {
     console.error('Error adding product:', error);
     throw error;
   }
+
+  revalidatePath('/product'); // Revalida a rota de produtos para atualizar a lista
+  redirect('/product'); // Redireciona para a página de produtos após adicionar
 }

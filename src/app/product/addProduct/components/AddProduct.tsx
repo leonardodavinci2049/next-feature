@@ -28,7 +28,7 @@ import {
   FormDescription,
 } from "@/components/ui/form";
 import { DollarSign, Package, FileText, Hash } from "lucide-react";
-import { toast } from "sonner";
+
 
 const formSchema = z.object({
   nome: z
@@ -97,30 +97,20 @@ const AddProduct = () => {
   async function handleConfirmSubmit() {
     if (!previewData) return;
 
-    try {
-      setIsLoading(true);
-      setError(null);
+    setIsLoading(true);
+    setError(null);
 
-      const formData = new FormData();
-      formData.append("nome", previewData.nome);
-      formData.append("preco", previewData.preco);
-      formData.append("descricao", previewData.descricao);
-      formData.append("estoque", previewData.estoque);
-      if (previewData.importado) {
-        formData.append("importado", "true");
-      }
-
-      await ActionAddProduct(formData);
-
-      toast.success("Produto adicionado com sucesso!");
-    } catch (error) {
-      console.error("Erro ao adicionar produto:", error);
-      setError("Erro ao adicionar produto. Tente novamente.");
-      toast.error("Erro ao adicionar produto. Tente novamente.");
-      setShowPreview(false); // Voltar para o formulário em caso de erro
-    } finally {
-      setIsLoading(false);
+    const formData = new FormData();
+    formData.append("nome", previewData.nome);
+    formData.append("preco", previewData.preco);
+    formData.append("descricao", previewData.descricao);
+    formData.append("estoque", previewData.estoque);
+    if (previewData.importado) {
+      formData.append("importado", "true");
     }
+
+    await ActionAddProduct(formData);
+    // O redirect acontece automaticamente na action, não precisa de mais nada aqui
   }
 
   function handleEditProduct() {
